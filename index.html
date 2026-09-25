@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="INNOVA — Entertainment Event Ticket Registration">
+  <title>INNOVA — Get Your Tickets</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="#home">INNOVA</a>
+  <nav class="nav"><a href="#home">Home</a><a href="#event">Event</a><a href="#tickets">Tickets</a><a href="#status">Order Status</a></nav>
+  <a class="nav-cta" href="#tickets">Get Tickets ↗</a>
+  <button class="menu-btn" aria-label="Menu">☰</button>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div class="hero-bg"></div><div class="hero-shade"></div>
+  <div class="hero-content">
+    <p class="eyebrow">MUSIC · PEOPLE · EXPERIENCES</p>
+    <h1>INNOVA</h1>
+    <p class="hero-sub">AN ENTERTAINMENT EVENT</p>
+    <div class="hero-meta">
+      <span><b>25 OCT 2026</b><small>EVENT DATE</small></span>
+      <span><b>VENUE TBA</b><small>PAKISTAN</small></span>
+      <span><b>GATES OPEN</b><small>TIME TBA</small></span>
+    </div>
+    <a class="primary-btn" href="#tickets">Get Tickets →</a>
+  </div>
+</section>
+
+<section id="event" class="section">
+  <div class="section-heading">
+    <p class="eyebrow">THE EXPERIENCE</p><h2>ONE NIGHT.<br>ONE EXPERIENCE.</h2>
+    <p>INNOVA brings live entertainment, a great crowd and premium ticket experiences together.</p>
+  </div>
+  <div class="feature-grid">
+    <article><div>♫</div><h3>LIVE ENTERTAINMENT</h3><p>Performances and experiences designed for an unforgettable night.</p></article>
+    <article><div>◎</div><h3>THE CROWD</h3><p>Bring your friends and make memories at INNOVA.</p></article>
+    <article><div>◇</div><h3>PREMIUM ACCESS</h3><p>VIP and Meet & Greet options are available.</p></article>
+    <article><div>✦</div><h3>MORE TO EXPLORE</h3><p>Food, activities and entertainment throughout the event.</p></article>
+  </div>
+</section>
+
+<section id="tickets" class="section tickets-section">
+  <div class="section-heading center">
+    <p class="eyebrow">TICKETS</p><h2>CHOOSE YOUR TICKET</h2><p>Select the number of tickets you want and continue.</p>
+  </div>
+  <div class="ticket-grid">
+    <article class="ticket-card">
+      <div class="ticket-art regular-art"></div><h3>REGULAR</h3><div class="price">Rs. 2,000</div>
+      <ul><li>General entry</li><li>Access to main event</li><li>Food & activity area</li></ul>
+      <button class="primary-btn choose-btn" data-type="Regular" data-price="2000">SELECT</button>
+    </article>
+    <article class="ticket-card featured">
+      <span class="popular">POPULAR</span><div class="ticket-art vip-art"></div><h3>VIP</h3><div class="price">Rs. 4,000</div>
+      <ul><li>Priority entry</li><li>Exclusive viewing area</li><li>Dedicated facilities</li><li>Special perks</li></ul>
+      <button class="primary-btn choose-btn" data-type="VIP" data-price="4000">SELECT</button>
+    </article>
+    <article class="ticket-card">
+      <div class="ticket-art meet-art"></div><h3>MEET & GREET</h3><div class="price">Rs. 7,000</div>
+      <ul><li>All VIP features</li><li>Meet the artists</li><li>Photo opportunity</li><li>Limited slots</li></ul>
+      <button class="primary-btn choose-btn" data-type="Meet & Greet" data-price="7000">SELECT</button>
+    </article>
+  </div>
+</section>
+
+<section id="registration" class="section hidden">
+  <div class="checkout-wrap">
+    <div class="progress"><span class="active">1</span><i></i><span class="active">2</span><i></i><span>3</span></div>
+    <div class="panel">
+      <p class="eyebrow">TICKET REGISTRATION</p><h2>ENTER YOUR DETAILS</h2>
+      <div class="selected-ticket">
+        <div><span>SELECTED TICKET</span><b id="selectedType">VIP</b></div>
+        <div><span>PRICE PER TICKET</span><b id="selectedPrice">Rs. 4,000</b></div>
+      </div>
+      <div class="form-grid">
+        <label>Full Name<input id="name" autocomplete="name" placeholder="Enter your full name"></label>
+        <label>Mobile Number<input id="mobile" autocomplete="tel" placeholder="03XX XXXXXXX"></label>
+        <label class="full">Email Address<input id="email" autocomplete="email" type="email" placeholder="you@example.com"></label>
+        <label>Number of Tickets<input id="quantity" type="number" min="1" max="10" value="1"></label>
+      </div>
+      <div class="calculation">
+        <div><span>Ticket price</span><b id="calcPrice">Rs. 4,000</b></div>
+        <div><span>Quantity</span><b id="calcQty">1</b></div>
+        <div class="total"><span>TOTAL PAYMENT</span><b id="calcTotal">Rs. 4,000</b></div>
+      </div>
+      <div class="payment-info">
+        <p class="eyebrow">WHERE TO SEND PAYMENT</p>
+        <h3>ACCOUNT TRANSFER</h3>
+        <p>Transfer the exact total shown above to the account below. After transferring, submit your transaction reference on this page.</p>
+        <div class="account-grid">
+          <div><span>Bank</span><b>YOUR BANK</b></div>
+          <div><span>Account Title</span><b>INNOVA EVENTS</b></div>
+          <div><span>Account Number</span><b>XXXX XXXX XXXX</b></div>
+          <div><span>IBAN</span><b>PK00 XXXX XXXX XXXX XXXX</b></div>
+        </div>
+      </div>
+      <div class="form-grid payment-form">
+        <label>Transaction / Reference ID<input id="transaction" placeholder="Enter transfer reference"></label>
+        <label>Payment Date<input id="paymentDate" type="date"></label>
+      </div>
+      <p class="small-note">Your order will be recorded as <b>PENDING</b>. The INNOVA team will manually verify the payment and then add your ticket number to the order.</p>
+      <div class="actions"><button class="secondary-btn" id="backTickets">← Back</button><button class="primary-btn" id="submitOrder">Submit Order →</button></div>
+    </div>
+  </div>
+</section>
+
+<section id="confirmation" class="section hidden">
+  <div class="success-card">
+    <div class="success-icon">✓</div><p class="eyebrow">ORDER SUBMITTED</p><h2>THANK YOU.</h2>
+    <p>Your details and payment reference have been recorded. Keep your Order ID. The INNOVA team will verify your transfer manually.</p>
+    <div class="order-summary">
+      <div><span>Order ID</span><b id="orderIdDisplay"></b></div>
+      <div><span>Name</span><b id="orderNameDisplay"></b></div>
+      <div><span>Tickets</span><b id="orderTicketsDisplay"></b></div>
+      <div><span>Total</span><b id="orderTotalDisplay"></b></div>
+      <div><span>Payment status</span><b class="pending">PENDING</b></div>
+      <div><span>Ticket number</span><b>Will be added after verification</b></div>
+    </div>
+    <button class="primary-btn" id="goStatus">Check Order Status</button>
+  </div>
+</section>
+
+<section id="status" class="section">
+  <div class="status-wrap">
+    <div class="section-heading center"><p class="eyebrow">ORDER STATUS</p><h2>CHECK YOUR ORDER</h2><p>Enter the Order ID given after registration.</p></div>
+    <div class="status-search"><input id="lookupId" placeholder="e.g. INN-482913"><button class="primary-btn" id="lookupBtn">Check Status</button></div>
+    <div id="statusResult" class="status-result hidden"></div>
+  </div>
+</section>
+</main>
+
+<footer><div class="footer-brand">INNOVA</div><p>AN ENTERTAINMENT EVENT</p><small>© 2026 INNOVA. All rights reserved.</small></footer>
+<div id="toast" class="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
