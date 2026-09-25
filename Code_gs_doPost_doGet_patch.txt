@@ -1,0 +1,105 @@
+// Replace your existing doPost() and doGet() functions with these.
+// Keep the rest of your Code.gs (SPREADSHEET_ID, getSheet_, json_,
+// createOrder_, and the existing order logic) unchanged.
+
+function doPost(e) {
+  try {
+    let data = {};
+
+    if (e && e.parameter && e.parameter.payload) {
+      data = JSON.parse(e.parameter.payload);
+    } else if (e && e.postData && e.postData.contents) {
+      data = JSON.parse(e.postData.contents);
+    }
+
+    if (data.action === "createOrder") {
+      return createOrder_(data);
+    }
+
+    return json_({
+      success: false,
+      error: "Unknown action"
+    });
+
+  } catch (err) {
+    return json_({
+      success: false,
+      error: String(err)
+    });
+  }
+}
+
+function doGet(e) {
+  try {
+    const action = e.parameter.action;
+
+    if (action === "getOrder") {
+      const result = getOrderObject_(e.parameter.orderId);
+      const callback = e.parameter.callback;
+
+      if (callback) {
+        return ContentService
+          .createTextOutput(callback + "(" + JSON.stringify(result) + ");")
+          .setMimeType(ContentService.MimeType.JAVASCRIPT);
+      }
+
+      return json_(result);
+    }
+
+    return json_({
+      success: true,
+      online: true
+    });
+
+  } catch (err) {
+    return json_({
+      success: false,
+      error: String(err)
+    });
+  }
+}
+
+function getOrderObject_(orderId) {
+  if (!orderId) {
+    return {
+      success: false,
+      error: "Order ID required"
+    };
+  }
+
+  const sheet = getSheet_();
+  const values = sheet.getDataRange().getValues();
+
+  for (let i = 1; i < values.length; i++) {
+    const row = values[i];
+
+    if (
+      String(row[0]).toUpperCase() ===
+      String(orderId).toUpperCase()
+    ) {
+      return {
+        success: true,
+        order: {
+          orderId: String(row[0]),
+          timestamp: row[1],
+          name: String(row[2]),
+          mobile: String(row[3]),
+          email: String(row[4]),
+          ticketType: String(row[5]),
+          quantity: Number(row[6]),
+          unitPrice: Number(row[7]),
+          total: Number(row[8]),
+          transactionId: String(row[9]),
+          paymentDate: String(row[10]),
+          paymentStatus: String(row[11] || "PENDING"),
+          ticketNumber: String(row[12] || "")
+        }
+      };
+    }
+  }
+
+  return {
+    success: false,
+    error: "Order not found"
+  };
+}
