@@ -3,7 +3,7 @@
   IMPORTANT: Set APPS_SCRIPT_URL after creating your Google Apps Script web app.
   The current UI is usable without it and stores a local demo order in the browser.
 */
-const APPS_SCRIPT_URL = ""; // paste your Apps Script /exec URL here later
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxaWZTZ4IDRKMdftAOpnu_6QZX_wa-F-IK0S8kr_TPdXn8tnnFUQE75GI11QX0Gi8U/exec";
 
 const state = {type:"VIP", price:4000, quantity:1};
 
